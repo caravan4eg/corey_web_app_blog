@@ -13,3 +13,4 @@ edit blog/views.py
     Render
     fake data dict posts
     context
+    add base.html
