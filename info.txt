@@ -1,0 +1,15 @@
+Python Django Tutorial: Full-Featured Web App
+
+Video course of Corey Shafer: https://www.youtube.com/watch?v=UmljXZIypDc
+
+Commands:
+pipenv install django
+python -m django --version
+django-admin startproject django_project .
+./manage.py runserver
+./manage.py startapp blog
+edit blog/views.py
+    HttpResponse
+    Render
+    fake data dict posts
+    context
