@@ -13,4 +13,28 @@ edit blog/views.py
     Render
     fake data dict posts
     context
-    add base.html
+    add base.html/partials etc
+
+admin panel
+    $ ./manage.py makemigrations
+    $ ./manage.py migrate
+    $ ./manage.py createsuperuser
+
+db, models
+    create Post model
+    работа со сременем
+        from django.utils import timezone
+        date_posted = models.DateTimeField(default=timezone.now)
+    user
+    from django.cintrib.auth.models import User
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    $ ./manage.py shell
+        >>> from django.db import models
+        >>> from django.contrib.auth.models import User
+        >>> User.objects.all()
+            <QuerySet [<User: admin>]>
+
+        >>> from blog.models import Post
+            >>> Post.objects.all()
+                <QuerySet []>
