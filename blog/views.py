@@ -1,6 +1,8 @@
 from django.shortcuts import render
-# from django.http import HttpResponse
+from .models import Post
 
+'''
+# dummy data
 posts = [
     {
         'author': 'Ilf and Petrov',
@@ -16,10 +18,11 @@ posts = [
          'content': 'Mauris rutrum convallis ex a maximus. Etiam ac dolor nec tortor iaculis egestas. Praesent viverra magna diam, non iaculis odio pulvinar lacinia. Cras elementum lacus in tellus cursus, ac sodales elit viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec egestas sed lacus ac euismod. Maecenas vestibulum libero in est mollis luctus. Etiam fringilla lorem eu eros dignissim luctus. Nullam ac orci tellus. Integer eu nisl diam. Vivamus lacinia ante vitae consequat hendrerit. In lobortis viverra pulvinar. Mauris non fringilla lorem, at accumsan velit.'
     },
 
-]
+]'''
 
 
 def home(request):
+    posts = Post.objects.all()
     context = {
         'posts': posts,
     }

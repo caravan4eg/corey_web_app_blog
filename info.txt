@@ -38,3 +38,45 @@ db, models
         >>> from blog.models import Post
             >>> Post.objects.all()
                 <QuerySet []>
+
+            >>> user = User.objects.filter(username='developer19').first()
+            >>> post = Post(content='Another post content!', author_id=user.id, title='Title new post')
+            >>> post
+            <Post: Title new post>
+            >>> post.save()
+            >>> Post.objects.all()
+                DITED>, <Post: Title new post>]>
+            >>> Post.objects.filter(title__icontains='new')
+                <QuerySet [<Post: Title new post>]>
+            >>> user.post_set
+                <django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x7fde3ce65af0>
+            >>> user.post_set.all()
+                <QuerySet [<Post: Title new post>]>
+
+                # Не нужно указывать пользователя и писать save()
+                >>> user.post_set.create(title='Post title post_set', content='some content')
+                    <Post: Post title post_set>
+
+                # Выдает посты только этого пользовтаеля
+                >>> user.post_set.all()
+                    <QuerySet [<Post: Title new post>, <Post: Post title post_set>]>
+
+    Работа с моделями во виюхе
+        from .models import Post
+       ...
+       posts = Post.objects.all()
+        context = {
+            'posts': posts,
+        }
+        return render(request, 'blog/home.html', context)
+
+    Дата на русском
+        # settings.py
+        LANGUAGE_CODE = 'ru-RU'
+        TIME_ZONE = 'UTC'
+        USE_I18N = True
+        USE_L10N = False
+        USE_TZ = True
+        DATE_FORMAT = 'd E Y'
+        # в шаблоне
+        {{ post.date_posted | date:"j E Y" }}
