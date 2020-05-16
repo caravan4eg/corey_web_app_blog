@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . import services
 from .models import Post
 
 '''
@@ -22,7 +23,7 @@ posts = [
 
 
 def home(request):
-    posts = Post.objects.all()
+    posts = services.get_all_posts()
     context = {
         'posts': posts,
     }
