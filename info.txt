@@ -80,3 +80,17 @@ db, models
         DATE_FORMAT = 'd E Y'
         # в шаблоне
         {{ post.date_posted | date:"j E Y" }}
+
+Create user registration page, login\logout
+    # create new app users
+    $ ./manage.py startapp users
+    # create register func in users/views
+        from django.contrib.auth.forms import UserCreationForm
+        def register(request):
+            form = UserCreationForm()
+            return render(request, 'users/register.html', {'form': form})
+    # create form in template users/register.html
+    # create url to register
+    # add messages
+        edit base.html
+    Now registration shoul work!!!
