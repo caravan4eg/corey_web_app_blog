@@ -16,10 +16,8 @@ def register(request):
             messages.success(request, f'Account created for {username}!')
             return redirect('blog-home')
         else:
-            messages.error(request, 'Please correct the error below.')
-            print('Form is not valid!!!!', form.errors.as_data())
-        print(request.POST)
-        print('[*]', form.errors.as_data().values())
+            messages.error(
+                request, f'Please correct the error below: {form.errors.as_data()}')
     else:
         # GET request.. return the form
         form = UserCreationForm()
