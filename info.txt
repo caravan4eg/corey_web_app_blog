@@ -94,3 +94,13 @@ Create user registration page, login\logout
     # add messages
         edit base.html
     Now registration shoul work!!!
+    # to add email field to our form we inherit new form UserRegisterForm from UserCreationForm
+        create forms.py
+    # to make better form we gonna use Crispy forms
+         $ pip install django-crispy-forms
+         add to settings.py
+            crispy_forms
+            CRISPY_TEMPLATE_PACK = 'bootstrap4'
+            add to users/register.html
+                {% load crispy_forms_tags %}
+                {{ form | crispy }}
