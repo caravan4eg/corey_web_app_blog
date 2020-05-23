@@ -13,9 +13,9 @@ def register(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            messages.success(request, f'Account created for {username}!')
-            return redirect('blog-home')
+            # login(request, user)
+            messages.success(request, f'Yout account has been created! Please log in')
+            return redirect('login')
         else:
             messages.error(
                 request, f'Please correct the error below: {form.errors.as_data()}')
@@ -23,3 +23,7 @@ def register(request):
         # GET request.. return the form
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
+
+def profile(request):
+    return render(request, 'users/profile.html',)

@@ -124,3 +124,5 @@ DATE_FORMAT = 'd E Y'
 
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'blog-home'

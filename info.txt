@@ -104,3 +104,11 @@ Create user registration page, login\logout
             add to users/register.html
                 {% load crispy_forms_tags %}
                 {{ form | crispy }}
+
+# Create athentication system login/logout
+    default logi view
+    template_name as arg in urls.py
+    login.html/logout.html
+    settings.py
+        LOGIN_REDIRECT_URL = 'blog-home'
+    to demonstrate restricted access to some pages cteate profile.html wich access only registered users
