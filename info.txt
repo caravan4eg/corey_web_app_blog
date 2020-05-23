@@ -112,3 +112,10 @@ Create user registration page, login\logout
     settings.py
         LOGIN_REDIRECT_URL = 'blog-home'
     to demonstrate restricted access to some pages cteate profile.html wich access only registered users
+        users/views.py/
+            from django.contrib.auth.decorators import login_required
+            @login_required
+            def profile(request):
+                ....
+        когда доступ не автори зован редирект на логин
+            LOGIN_URL = 'login'
