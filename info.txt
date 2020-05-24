@@ -132,3 +132,12 @@ Create user registration page, login\logout
             from django.conf.urls.static import static
             if settings.DEBUG:
                 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Use signals to create Profile for user when he register
+    create users/signals.py
+    edit users/apps.py
+    !!! Важно чтобы сигалы работали нужно в INSTALLED_APPS прописывать приложение полностью:
+        'users.apps.UsersConfig',
+Update Profile
+    resize images
+    Update profile from users themselves

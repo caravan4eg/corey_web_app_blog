@@ -13,10 +13,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            # login(request, user)
-            messages.success(request, f'Yout account has been created! Please log in')
+            messages.success(
+                request, f'Your account has been created! You are now able to log in')
             return redirect('login')
         else:
             messages.error(
@@ -25,6 +23,7 @@ def register(request):
         # GET request.. return the form
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
 
 @login_required
 def profile(request):
