@@ -106,7 +106,7 @@ Create user registration page, login\logout
                 {{ form | crispy }}
 
 # Create athentication system login/logout
-    default logi view
+    default login/logout view
     template_name as arg in urls.py
     login.html/logout.html
     settings.py
@@ -119,3 +119,16 @@ Create user registration page, login\logout
                 ....
         когда доступ не автори зован редирект на логин
             LOGIN_URL = 'login'
+
+# Create user profile with picture. Django Signals
+    Create Profile model with ImageField, extends User model
+    to get access to the image -> user.profile.image.url
+    To work with images
+        edit settings.py
+            MEDIA_ROOT
+            MEDIA_URL
+        edit root urls.py
+            from django.conf import settings
+            from django.conf.urls.static import static
+            if settings.DEBUG:
+                urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
