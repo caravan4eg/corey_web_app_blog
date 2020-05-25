@@ -133,11 +133,28 @@ Create user registration page, login\logout
             if settings.DEBUG:
                 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# Use signals to create Profile for user when he register
+# Use signals to create Profile for user when he registers
     create users/signals.py
     edit users/apps.py
-    !!! Важно чтобы сигалы работали нужно в INSTALLED_APPS прописывать приложение полностью:
+    !!! Важно !!! чтобы сигалы работали нужно в INSTALLED_APPS прописывать приложение полностью:
         'users.apps.UsersConfig',
 Update Profile
-    resize images
-    Update profile from users themselves
+    What will we do:
+        resize images + create form to update profile
+    Update users/forms
+        class UserUpdateForm(forms.ModelForm)
+        class ProfileUpdateForm(forms.ModelForm)
+    Update users/views.py
+        edit def profile
+
+    Update users/register.html
+        {{ u_form | crispy }}
+        {{ p_form | crispy }}не будет работать
+        <form method="POST" enctype="multipart/form-data">  !!! Иначе
+    To resize image
+        change save method Profile model
+
+    Add small image of author by each post
+        {{ post.author.profile.image.url }}
+
+Create, Update, and Delete Posts / Class Based Views CBV
