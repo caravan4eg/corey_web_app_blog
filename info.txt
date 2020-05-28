@@ -170,3 +170,10 @@ Create, Update, and Delete Posts / Class Based Views CBV
         from django.contrib.auth.mixins import LoginRequiredMixin
         add LoginRequiredMixin to class
             class PostCreateView(LoginRequiredMixin, CreateView):
+
+
+Pagination
+    paginate_by = 3
+    edit home.html
+
+Show posts by user
