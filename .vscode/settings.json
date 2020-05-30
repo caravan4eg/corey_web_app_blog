@@ -1,0 +1,7 @@
+{
+    "git.showProgress": false,
+    "gitHistory.showEditorTitleMenuBarIcons": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false
+}

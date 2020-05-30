@@ -9,8 +9,9 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from . import services
-from .models import Post
+from .models import Post, Comment
 from django.contrib.auth.models import User
+from .forms import CommentForm
 
 
 '''
@@ -59,6 +60,10 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
 
+    # # use My own Manager - post_by_author
+    # def get_queryset(self):
+    #     username = self.kwargs.get('username')
+    #     return Post.post_by_author.all(username)
 
 class PostDetailView(DetailView):
     model = Post

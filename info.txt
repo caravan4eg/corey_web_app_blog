@@ -177,3 +177,23 @@ Pagination
     edit home.html
 
 Show posts by user
+
+
+Reset password by users through email
+    url password-reset
+    Not implemented!!!!
+
+Create storage on S2 AWS Amazon S3 buckets
+    create new bucket caravan4eg-django-blog-files
+    config CORS (cors-config.txt)
+    Identity and Access Management (IAM)
+    create code . ~/.bash_profile and add secret keys to it
+    Install S3 support
+        $ pip install boto3
+        $ pip install django-storages
+        Edit settings.py
+            INSTALLED_APPS
+            ...
+            'storages',
+            Add secret key environments
+    Load media files to S3 bucket
